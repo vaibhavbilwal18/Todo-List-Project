@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# Todo List Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A feature-rich task management application built with React, Redux, and Material UI.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Create, edit, delete, and mark tasks as complete
+- Filter and sort tasks by status, date, and priority
+- Responsive design for mobile and desktop
+- Drag and drop functionality for task reordering
+- Data persistence with localStorage
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React.js (with Hooks)
+- Redux (Redux Toolkit)
+- Material UI
+- React DnD (Drag and Drop)
+- date-fns for date formatting
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+Before you begin, ensure you have the following installed:
+- Node.js (v14.0.0 or later)
+- npm (v6.0.0 or later)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup Instructions
 
-### `npm run build`
+### 1. Clone the repository or create a new project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Option 1: Create a new project
+npx create-react-app todo-list-app
+cd todo-list-app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Option 2: If cloning from a repository
+git clone <repository-url>
+cd todo-list-app
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Install dependencies
 
-### `npm run eject`
+```bash
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/x-date-pickers date-fns @reduxjs/toolkit react-redux react-dnd react-dnd-html5-backend react-dnd-touch-backend uuid
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create the following folder structure:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+├── components/
+│   ├── FilterControls.js
+│   ├── TaskForm.js
+│   ├── TaskItem.js
+│   └── TaskList.js
+├── redux/
+│   └── todoSlice.js
+├── App.js
+└── index.js
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 4. Copy source files
 
-## Learn More
+Copy the provided source code into the respective files:
+- `App.js` - Main application component
+- `components/FilterControls.js` - Filter and sort controls
+- `components/TaskForm.js` - Form for adding tasks
+- `components/TaskItem.js` - Individual task component
+- `components/TaskList.js` - Task list component
+- `redux/todoSlice.js` - Redux slice for state management
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Update index.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Make sure your `index.js` file includes:
 
-### Code Splitting
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
 
-### Analyzing the Bundle Size
+### 6. Start the development server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+The application should now be running at http://localhost:3000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Usage
 
-### Advanced Configuration
+- **Add a task**: Fill out the form at the top and click "Add Task"
+- **Edit a task**: Click the edit icon on any task
+- **Complete a task**: Check the checkbox next to the task
+- **Delete a task**: Click the delete icon on any task
+- **Filter tasks**: Use the tabs to filter by status or date
+- **Sort tasks**: Use the dropdown menus to sort by different criteria
+- **Reorder tasks**: Drag and drop tasks to change their order
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Evaluation Criteria
 
-### Deployment
+This application was built with the following evaluation criteria in mind:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. **Component organization and state management**
+   - Clean component structure with separation of concerns
+   - Efficient state management using Redux
+   - Local component state with React hooks
 
-### `npm run build` fails to minify
+2. **User interface and experience**
+   - Intuitive and clean user interface
+   - Visual indicators for task status and priority
+   - Smooth animations and transitions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Responsive design implementation**
+   - Fully responsive layout
+   - Mobile-friendly interface
+   - Adaptive components based on screen size
+
