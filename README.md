@@ -95,7 +95,7 @@ root.render(
 npm start
 ```
 
-The application should now be running at http://localhost:3000.
+The application should now be running at https://todo-list-project-one-chi.vercel.app/
 
 ## Usage
 
